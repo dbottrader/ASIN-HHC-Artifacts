@@ -1,0 +1,14 @@
+{
+  "artifact": "CP8_CP9_Geometric_Intelligence_Report",
+  "source_filename": "CP8_CP9_Geometric_Intelligence_Report.docx",
+  "source_size_bytes": 3098563,
+  "source_sha256": "bc79fd0759174d3fb32b1e3d2785040392c6110ea9f0f79f6492251367ecedeb",
+  "public_repository": "dbottrader/ASIN-HHC-Artifacts",
+  "release_status": "public research artifact",
+  "published_representation": "Markdown release/index plus manifest. Source DOCX remains in the chat upload because the available GitHub connector supports UTF-8 text file operations, not direct binary DOCX upload.",
+  "recommended_final_paths": {
+    "source_docx": "reports/CP8_CP9_Geometric_Intelligence_Report.docx",
+    "markdown": "reports/CP8_CP9_Geometric_Intelligence_Report.md",
+    "manifest": "reports/CP8_CP9_Geometric_Intelligence_Report_MANIFEST.json"
+  }
+}
