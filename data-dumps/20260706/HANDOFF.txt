@@ -1,0 +1,16 @@
+repo dbottrader/ASIN-HHC-Artifacts
+branch artifact-20260706
+pr 1
+base main
+last_known_head 5547cc28830d0fc0bc5b7272d997d98b13c5fde0
+
+staged
+- data-dumps/20260706/README.md
+- data-dumps/20260706/professional-summary.md
+- data-dumps/20260706/raw/DeepSpec_Engineering_Review_with_Commentary.pdf
+
+resume
+Fetch PR 1. Use current head SHA as parent. Continue adding remaining uploaded artifacts under data-dumps/20260706/raw/ using the same git object pipeline already proven on the PDF.
+
+boundary
+Artifact staging only. File hashes are provenance records, not claim promotion.
