@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600">
+<defs>
+ <radialGradient id="bg"><stop stop-color="#102f4a"/><stop offset=".55" stop-color="#07111f"/><stop offset="1" stop-color="#02050a"/></radialGradient>
+ <linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#6be6ff"/><stop offset=".5" stop-color="#9a7cff"/><stop offset="1" stop-color="#ffbe55"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1200" height="1600" fill="url(#bg)"/>
+<g opacity=".22" stroke="#6be6ff"><path d="M0 240H1200M0 480H1200M0 720H1200M0 960H1200M0 1200H1200M0 1440H1200"/><path d="M200 0V1600M400 0V1600M600 0V1600M800 0V1600M1000 0V1600"/></g>
+<text x="600" y="130" text-anchor="middle" fill="#eef8ff" font-family="Arial" font-size="86" font-weight="700" letter-spacing="12">CP8 SNAKE</text>
+<text x="600" y="195" text-anchor="middle" fill="#6be6ff" font-family="Arial" font-size="30" letter-spacing="8">HYPERCUBE LAB v1.1</text>
+<text x="600" y="250" text-anchor="middle" fill="#ffbe55" font-family="Arial" font-size="20" letter-spacing="6">INDUCED PATHS · φ SEARCH · PROOF RECEIPTS</text>
+<g transform="translate(600 690)" fill="none" stroke="url(#g)" filter="url(#glow)">
+ <rect x="-350" y="-350" width="700" height="700" stroke-width="5"/>
+ <rect x="-220" y="-220" width="440" height="440" stroke-width="4"/>
+ <path d="M-350-350L-220-220M350-350L220-220M350 350L220 220M-350 350L-220 220" stroke-width="3"/>
+ <path d="M-350-350H350V350H-350V-350L-220-220H220V220H-220V-220L350-350M220-220L350 350M220 220L-350 350" stroke-width="11" stroke-linecap="round"/>
+ <circle cx="-350" cy="-350" r="14" fill="#6be6ff"/><circle cx="350" cy="-350" r="14" fill="#ffbe55"/><circle cx="350" cy="350" r="14" fill="#9a7cff"/><circle cx="-350" cy="350" r="14" fill="#6be6ff"/>
+</g>
+<g font-family="Arial" text-anchor="middle">
+ <text x="250" y="1160" fill="#6be6ff" font-size="25">428 // CORE</text><text x="250" y="1200" fill="#eef8ff" font-size="46" font-weight="700">VALIDITY</text>
+ <text x="600" y="1160" fill="#ffbe55" font-size="25">528 // FUSION</text><text x="600" y="1200" fill="#eef8ff" font-size="46" font-weight="700">ENTROPY</text>
+ <text x="950" y="1160" fill="#9a7cff" font-size="25">963 // INTEGRATION</text><text x="950" y="1200" fill="#eef8ff" font-size="46" font-weight="700">COVERAGE</text>
+ <text x="600" y="1310" fill="#c1d4e2" font-size="24">S = 100 × (428C + 528F + 963I) / 1919</text>
+ <text x="600" y="1390" fill="#ffbe55" font-size="28" letter-spacing="5">A → S → I → N</text>
+ <text x="600" y="1440" fill="#9fb5c5" font-size="20" letter-spacing="3">ANCHOR · SEARCH · INTEGRITY · NETWORK</text>
+ <text x="600" y="1520" fill="#eef8ff" font-size="25" letter-spacing="4">CAPABILITY ≠ AUTHORITY · NO RECEIPT = NO PROMOTION</text>
+</g>
+</svg>

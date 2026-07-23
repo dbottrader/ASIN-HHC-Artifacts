@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:asin-hhc:cp8:snake-proof:v1.1",
+  "title": "CP8 Snake Hypercube Proof v1.1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema", "artifact", "app_version", "created_utc", "dimension",
+    "state_space_vertices", "path_vertices", "path_edges", "path_decimal",
+    "path_binary", "constraints", "verification", "search",
+    "cp8_math_receipt", "claim_boundary", "provenance", "content_seal"
+  ],
+  "properties": {
+    "schema": {"const": "asin-hhc.cp8.snake-proof.v1.1"},
+    "artifact": {"const": "CP8 Snake // Hypercube Lab"},
+    "app_version": {"const": "1.1.0"},
+    "created_utc": {"type": "string", "format": "date-time"},
+    "dimension": {"type": "integer", "minimum": 3, "maximum": 10},
+    "state_space_vertices": {"type": "integer", "minimum": 8, "maximum": 1024},
+    "path_vertices": {"type": "integer", "minimum": 1},
+    "path_edges": {"type": "integer", "minimum": 0},
+    "path_decimal": {"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": 0}},
+    "path_binary": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^[01]+$"}},
+    "constraints": {
+      "type": "object",
+      "required": ["consecutive_hamming_distance", "nonconsecutive_minimum_hamming_distance", "repeated_vertices_allowed"],
+      "properties": {
+        "consecutive_hamming_distance": {"const": 1},
+        "nonconsecutive_minimum_hamming_distance": {"const": 2},
+        "repeated_vertices_allowed": {"const": false}
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": ["ok", "reason"],
+      "properties": {"ok": {"type": "boolean"}, "reason": {"type": "string"}}
+    },
+    "search": {
+      "type": "object",
+      "required": ["method", "strategy", "nodes_examined"],
+      "properties": {
+        "method": {"type": "string"},
+        "strategy": {"type": "string"},
+        "golden_angle_tie_break_deg": {"type": ["number", "null"]},
+        "deterministic_seed": {"type": ["integer", "null"]},
+        "nodes_examined": {"type": "integer", "minimum": 0}
+      }
+    },
+    "cp8_math_receipt": {
+      "type": "object",
+      "required": ["constants", "definitions", "values", "flip_sequence", "flip_counts", "anu28", "boundary"],
+      "properties": {
+        "values": {
+          "type": "object",
+          "required": ["core_428", "fusion_528", "integration_963", "composite_score"],
+          "properties": {
+            "core_428": {"type": "number", "minimum": 0, "maximum": 1},
+            "fusion_528": {"type": "number", "minimum": 0, "maximum": 1},
+            "integration_963": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+            "composite_score": {"type": "number", "minimum": 0, "maximum": 100}
+          }
+        },
+        "flip_sequence": {"type": "array", "items": {"type": "integer", "minimum": -1, "maximum": 9}},
+        "flip_counts": {"type": "array", "minItems": 3, "maxItems": 10, "items": {"type": "integer", "minimum": 0}},
+        "anu28": {
+          "type": "object",
+          "required": ["index_zero_based", "symbol", "name", "meaning", "role"],
+          "properties": {"index_zero_based": {"type": "integer", "minimum": 0, "maximum": 27}}
+        }
+      }
+    },
+    "claim_boundary": {
+      "type": "object",
+      "required": ["optimality_claim", "independent_reproduction", "evidence_status", "authority_status", "attestation"],
+      "properties": {
+        "optimality_claim": {"const": false},
+        "independent_reproduction": {"const": false},
+        "evidence_status": {"const": "LOCAL_BROWSER_VERIFIED"},
+        "authority_status": {"const": "HOLD"},
+        "attestation": {"const": "MACHINE_EXECUTION_UNATTESTED"}
+      }
+    },
+    "content_seal": {
+      "type": "object",
+      "required": ["algorithm", "canonicalization", "digest"],
+      "properties": {
+        "algorithm": {"const": "SHA-256"},
+        "canonicalization": {"type": "string"},
+        "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}
