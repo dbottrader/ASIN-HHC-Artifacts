@@ -1,0 +1,82 @@
+{
+  "schema": "asin-hhc.cp8.snake-proof.v1.1",
+  "artifact": "CP8 Snake // Hypercube Lab",
+  "app_version": "1.1.0",
+  "created_utc": "2026-07-23T18:40:51.468Z",
+  "dimension": 6,
+  "state_space_vertices": 64,
+  "path_vertices": 11,
+  "path_edges": 10,
+  "path_decimal": [0,1,3,11,10,14,6,38,34,50,18],
+  "path_binary": ["000000","000001","000011","001011","001010","001110","000110","100110","100010","110010","010010"],
+  "constraints": {
+    "consecutive_hamming_distance": 1,
+    "nonconsecutive_minimum_hamming_distance": 2,
+    "repeated_vertices_allowed": false
+  },
+  "verification": {
+    "ok": true,
+    "vertices": 11,
+    "edges": 10,
+    "reason": "INDUCED PATH VERIFIED"
+  },
+  "search": {
+    "method": "cp8_phi_quick_demo",
+    "strategy": "cp8_phi",
+    "golden_angle_tie_break_deg": 137.507764,
+    "deterministic_seed": null,
+    "nodes_examined": 0
+  },
+  "cp8_math_receipt": {
+    "constants": {
+      "phi": 1.618033988749895,
+      "phi_inverse": 0.6180339887498948,
+      "golden_angle_deg": 137.507764,
+      "harmonic_namespaces_hz_metadata": {"core": 428,"fusion": 528,"integration": 963}
+    },
+    "definitions": {
+      "core_428": "1 when structural induced-path verification passes, otherwise 0",
+      "fusion_528": "Shannon entropy of the bit-flip distribution divided by log2(n)",
+      "integration_963": "path_vertices divided by 2^n",
+      "composite": "100*(428*core + 528*fusion + 963*integration)/1919"
+    },
+    "values": {
+      "core_428": 1,
+      "fusion_528": 0.9756149631508355,
+      "integration_963": 0.171875,
+      "composite_score": 57.771773087214235
+    },
+    "flip_sequence": [0,1,3,0,2,3,5,2,4,5],
+    "flip_counts": [2,1,2,2,1,2],
+    "anu28": {
+      "index_zero_based": 10,
+      "symbol": "ϴ",
+      "name": "Ophi",
+      "meaning": "Air / Intelligence",
+      "role": "semantic routing metadata only"
+    },
+    "boundary": "CP8 score, glyphs, and frequency labels are auxiliary metadata. Structural verification and SHA-256 are the operative proof mechanisms."
+  },
+  "claim_boundary": {
+    "optimality_claim": false,
+    "independent_reproduction": false,
+    "evidence_status": "LOCAL_BROWSER_VERIFIED",
+    "authority_status": "HOLD",
+    "attestation": "MACHINE_EXECUTION_UNATTESTED"
+  },
+  "provenance": {
+    "producer": "CP8 Snake Hypercube Lab",
+    "runtime": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/144.0.0.0 Safari/537.36",
+    "source": "single_file_offline_html",
+    "lineage": [
+      "ASIN Handshake Image System deterministic golden-angle geometry",
+      "Harmonic Algebra Specification 428/528/963 namespaces",
+      "ANU-28 semantic coordination grammar"
+    ]
+  },
+  "content_seal": {
+    "algorithm": "SHA-256",
+    "canonicalization": "recursive_key_sort_compact_json_excluding_content_seal",
+    "digest": "ab299e0f20dcd2400c07c3f6878adecd09927c704df0244ca283a596995ba3b2"
+  }
+}
