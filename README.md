@@ -4,7 +4,13 @@ Public artifact repository for ASIN-HHC, CP8, and CP9 materials.
 
 ## Repository Role
 
-This repository is the curated public-facing artifact portfolio. The canonical provenance spine remains `dbottrader/Holbrook-CP8-HHC`.
+This repository is the curated public-facing artifact portfolio. The canonical provenance spine remains [`dbottrader/Holbrook-CP8-HHC`](https://github.com/dbottrader/Holbrook-CP8-HHC).
+
+Canonical chronology and citation:
+
+- [`PUBLIC_PROVENANCE_RECORD.md`](https://github.com/dbottrader/Holbrook-CP8-HHC/blob/main/docs/PUBLIC_PROVENANCE_RECORD.md)
+- [`public-record.json`](https://github.com/dbottrader/Holbrook-CP8-HHC/blob/main/provenance/public-record.json)
+- [`CITATION.cff`](https://github.com/dbottrader/Holbrook-CP8-HHC/blob/main/CITATION.cff)
 
 Use this repository for:
 
@@ -49,4 +55,4 @@ The canonical manifest and SHA inventory for this payload are stored in `dbottra
 
 ## Boundary
 
-Do not place private drafts, raw speculative notes, or unredacted internal material here.
+Do not place private drafts, raw speculative notes, or unredacted internal material here. Artifact publication establishes availability and chronology; it does not automatically establish independent reproduction, technical correctness, or derivation by another project.
