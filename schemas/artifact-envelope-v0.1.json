@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "asin-hhc://schemas/artifact-envelope-v0.1",
+  "title": "ASIN-HHC Reality Artifact Envelope",
+  "type": "object",
+  "required": ["artifact_id","artifact_type","created_at","source_refs","transformation_spec","input_hashes","output_hash","claims","tests","receipts","evidence_state"],
+  "properties": {
+    "artifact_id": {"type":"string","minLength":1},
+    "artifact_type": {"type":"string","minLength":1},
+    "created_at": {"type":"string","format":"date-time"},
+    "source_refs": {"type":"array","items":{"type":"string"}},
+    "parent_artifact_refs": {"type":"array","items":{"type":"string"}},
+    "transformation_spec": {"type":"string"},
+    "runtime": {"type":"object","additionalProperties":true},
+    "parameters": {"type":"object","additionalProperties":true},
+    "input_hashes": {"type":"array","items":{"type":"string","pattern":"^[a-fA-F0-9]{64}$"}},
+    "output_hash": {"type":"string","pattern":"^[a-fA-F0-9]{64}$"},
+    "claims": {"type":"array","items":{"type":"object","required":["claim_id","state","text"],"properties":{"claim_id":{"type":"string"},"state":{"enum":["OBSERVED","CONTEXT","HYPOTHESIS","TEST","CONCLUSION"]},"text":{"type":"string"}},"additionalProperties":false}},
+    "tests": {"type":"array","items":{"type":"object","required":["test_id","procedure","result"],"properties":{"test_id":{"type":"string"},"procedure":{"type":"string"},"result":{"type":"string"}},"additionalProperties":false}},
+    "receipts": {"type":"array","items":{"type":"string"}},
+    "evidence_state": {"enum":["E0_UNSEEN","E1_DRAFT","E2_LOCAL_VERIFIED","E3_REPRODUCED","E4_CORROBORATED","E5_ESTABLISHED","HOLD"]},
+    "known_limitations": {"type":"array","items":{"type":"string"}}
+  },
+  "additionalProperties": false
+}
