@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"asin-hhc://schemas/claim-record-v0.1",
+  "title":"ASIN-HHC Claim Record",
+  "type":"object",
+  "required":["claim_id","state","text","provenance","test_plan"],
+  "properties":{
+    "claim_id":{"type":"string"},
+    "state":{"enum":["OBSERVED","CONTEXT","HYPOTHESIS","TEST","CONCLUSION"]},
+    "text":{"type":"string"},
+    "provenance":{"type":"array","items":{"type":"string"}},
+    "test_plan":{"type":"array","items":{"type":"string"}},
+    "counter_hypotheses":{"type":"array","items":{"type":"string"}},
+    "result":{"type":"string"},
+    "evidence_state":{"enum":["E0_UNSEEN","E1_DRAFT","E2_LOCAL_VERIFIED","E3_REPRODUCED","E4_CORROBORATED","E5_ESTABLISHED","HOLD"]}
+  },
+  "additionalProperties":false
+}
