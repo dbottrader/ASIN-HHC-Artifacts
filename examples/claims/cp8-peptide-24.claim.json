@@ -1,0 +1,27 @@
+{
+  "claim_id": "CP8-PEPTIDE-24",
+  "state": "TEST",
+  "text": "Under the declared 2-bit to base mapping (00=A, 01=C, 10=G, 11=U) and the standard genetic code, lexicographic traversal of 000000 through 111111 yields the 24-residue string KNKNTTTTRSRSIIMIQHQHPPPP at the head of a 64-residue product. This sentence is a computational mapping claim only. It does not assert that any physical object encoded, emitted, or intended the mapping.",
+  "provenance": [
+    "procedure: bit2base-stdcode-lex-v1",
+    "mapping: 00=A, 01=C, 10=G, 11=U",
+    "code: standard genetic code",
+    "traversal: lexicographic 000000 to 111111",
+    "physical source: UNRESOLVED — no frozen artifact hash links a Buga sphere, crop formation, or other physical mark to this mapping"
+  ],
+  "test_plan": [
+    "Recompute every 6-bit string from 000000 to 111111 under the declared mapping and the standard genetic code, without using the target string as an input.",
+    "Record entropy, compressed size, methionine position, and stop count in the first 24 residues as measurements of the product, not as proof of intention.",
+    "Blind reconstruction: the procedure must be able to reach the stated string without being shown that string as the expected plaintext. A construction that only works while looking at the target is not a decoding.",
+    "Independent witness: a second implementation, outside the original reasoning path, must rerun the same frozen procedure before REPRODUCED may be claimed.",
+    "Cross-artifact validation: do not treat the mapping as evidence of physical encoding until a separate procedure, with its own failure condition, links marks on a hashed physical artifact to the code."
+  ],
+  "counter_hypotheses": [
+    "The 24-residue head is a consequence of lexicographic order plus the standard code, not a message.",
+    "Reported features (entropy, compressed size, methionine position, stop count) can be true of the string and still not establish authorship or emission.",
+    "Agreement among models would not constitute independent reproduction.",
+    "Physical glyph-to-code causality is untested."
+  ],
+  "result": "TESTED. Computational procedure is defined and recomputable in principle. evidence_state remains HOLD. Blockers still open: physical source, blind reconstruction, independent witness, cross-artifact validation. Do not upgrade this record because the math is determinate.",
+  "evidence_state": "HOLD"
+}
