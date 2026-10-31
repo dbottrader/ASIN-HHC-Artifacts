@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "asin-hhc://schemas/evidence-receipt-v0.1",
+  "title": "ASIN-HHC Evidence Receipt",
+  "description": "Inspectable record of a run. A receipt does not promote a claim. PROMOTED is rejected unless replay is REPRODUCED, evidence_state is E5_ESTABLISHED, and source, input, and result hashes are real sha256 digests.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_id",
+    "claim_id",
+    "artifact_id",
+    "protocol_id",
+    "execution_timestamp",
+    "environment",
+    "replay_status",
+    "promotion_status"
+  ],
+  "properties": {
+    "receipt_id": { "type": "string", "minLength": 1 },
+    "claim_id": { "type": "string", "minLength": 1 },
+    "artifact_id": { "type": "string", "minLength": 1 },
+    "source_hash": { "$ref": "#/$defs/sha256OrUnresolved" },
+    "input_hash": { "$ref": "#/$defs/sha256OrUnresolved" },
+    "result_hash": { "$ref": "#/$defs/sha256OrUnresolved" },
+    "toolchain_version": { "type": "string" },
+    "code_revision": { "type": "string" },
+    "model_identity": { "type": "string" },
+    "prompt_or_protocol_id": { "type": "string" },
+    "protocol_id": { "type": "string", "minLength": 1 },
+    "execution_timestamp": { "type": "string", "format": "date-time" },
+    "environment": { "type": "string", "minLength": 1 },
+    "parameters": { "type": "object", "additionalProperties": true },
+    "random_seed": { "type": ["string", "null"] },
+    "control_results": { "type": "array", "items": { "type": "string" } },
+    "negative_controls": { "type": "array", "items": { "type": "string" } },
+    "witnesses": { "type": "array", "items": { "type": "string" } },
+    "blockers": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "replay_status": { "enum": ["NOT_RUN", "EXECUTED", "REPRODUCED", "FAILED"] },
+    "promotion_status": { "enum": ["HOLD", "ELIGIBLE", "PROMOTED"] },
+    "evidence_state": {
+      "enum": [
+        "E0_UNSEEN",
+        "E1_DRAFT",
+        "E2_LOCAL_VERIFIED",
+        "E3_REPRODUCED",
+        "E4_CORROBORATED",
+        "E5_ESTABLISHED",
+        "HOLD"
+      ]
+    }
+  },
+  "$defs": {
+    "sha256OrUnresolved": {
+      "anyOf": [
+        { "type": "null" },
+        { "const": "UNRESOLVED" },
+        { "type": "string", "pattern": "^sha256:[a-fA-F0-9]{64}$" }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "promotion_status": { "const": "PROMOTED" } },
+        "required": ["promotion_status"]
+      },
+      "then": {
+        "properties": {
+          "source_hash": { "type": "string", "pattern": "^sha256:[a-fA-F0-9]{64}$" },
+          "input_hash": { "type": "string", "pattern": "^sha256:[a-fA-F0-9]{64}$" },
+          "result_hash": { "type": "string", "pattern": "^sha256:[a-fA-F0-9]{64}$" },
+          "replay_status": { "const": "REPRODUCED" },
+          "evidence_state": { "const": "E5_ESTABLISHED" }
+        },
+        "required": [
+          "source_hash",
+          "input_hash",
+          "result_hash",
+          "code_revision",
+          "witnesses",
+          "negative_controls",
+          "evidence_state"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": { "promotion_status": { "const": "HOLD" } },
+        "required": ["promotion_status"]
+      },
+      "then": {
+        "properties": {
+          "evidence_state": { "const": "HOLD" }
+        }
+      }
+    }
+  ]
+}
